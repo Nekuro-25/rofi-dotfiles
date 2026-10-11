@@ -1,0 +1,114 @@
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color:       @fg;
+    margin:           0;
+    padding:          0;
+    spacing:          0;
+}
+
+/* Layar penuh. Di luar panel hanya ada tint tipis (@backdrop); dengan
+ * layer rule blur di Hyprland (rules/layers.lua) seluruh isi layar di
+ * belakang Rofi jadi sedikit blur, sehingga fokus beralih ke panel.
+ * Padding mengatur posisi dan lebar panel: atas, kiri/kanan. */
+window {
+    fullscreen:       true;
+    background-color: @backdrop;
+    padding:          22% 30%;
+    children:         [ "frame" ];
+}
+
+/* Bingkai: gradien merah -> biru es, setebal padding (= border gradien).
+ * Rofi tidak mendukung border-color gradien, jadi gradiennya digambar
+ * di bingkai dan panel diletakkan di dalamnya.
+ * Warna harus literal (tidak bisa memakai @variabel di sini). */
+frame {
+    expand:           false;
+    padding:          1px;
+    border-radius:    2px;
+    background-image: linear-gradient(45, #e0122e, #8fc4dc);
+    children:         [ "mainbox" ];
+}
+
+mainbox {
+    padding:          14px;
+    spacing:          10px;
+    border-radius:    2px;
+    background-color: @bg;
+    children:         [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    padding:          10px 12px;
+    spacing:          10px;
+    border-radius:    2px;
+    background-color: @bg-input;
+    children:         [ "icon-search", "entry" ];
+}
+
+/* Logo pencarian: SVG gradien merah -> biru es (search.svg), bukan glyph
+ * font, jadi tidak ikut terpotong atau berubah bentuk karena font. */
+icon-search {
+    expand:           false;
+    filename:         "/home/bagus/.config/rofi/search.svg";
+    size:             1.5em;
+    vertical-align:   0.5;
+}
+
+entry {
+    placeholder:       "Search...";
+    placeholder-color: @fg-muted;
+    text-color:        @ice-hi;
+    vertical-align:    0.5;
+}
+
+message {
+    padding:          8px 12px;
+    border-radius:    2px;
+    background-color: @bg-input;
+}
+
+textbox {
+    text-color:       @fg;
+}
+
+listview {
+    lines:            3;
+    columns:          1;
+    spacing:          4px;
+    scrollbar:        false;
+    fixed-height:     true;   /* wajib true: dengan false, daftar tidak tampil di dalam bingkai */
+    cycle:            true;
+}
+
+element {
+    padding:          8px 10px;
+    spacing:          12px;
+    border-radius:    2px;
+    orientation:      horizontal;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element selected.normal {
+    background-color: @sel;
+    text-color:       @ice-hi;
+    border:           0px 0px 0px 2px;
+    border-color:     @ice;
+}
+
+element-icon {
+    size:             1.8em;
+    vertical-align:   0.5;
+}
+
+element-text {
+    text-color:       inherit;
+    vertical-align:   0.5;
+    highlight:        bold #8fc4dc;   /* harus literal: @variabel tidak diterima di sini */
+}

@@ -1,0 +1,19 @@
+/* =========================================================
+ * ROFI — THEME: picker clipboard (cliphist)
+ * Daftar ringkas yang lebih lebar. Dipakai oleh
+ * hypr/keybinds/clipboard.lua (SUPER + .).
+ * ========================================================= */
+
+@import "menu.rasi"
+
+window {
+    padding:          20% 25%;
+}
+
+listview {
+    lines:            8;
+}
+
+element {
+    padding:          6px 10px;
+}

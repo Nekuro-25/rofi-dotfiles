@@ -1,0 +1,38 @@
+/* =========================================================
+ * ROFI — CONFIG (perilaku)
+ * Tampilan: theme.rasi   |   Warna: colors.rasi
+ * ========================================================= */
+
+configuration {
+    modes:                  "drun";
+    font:                   "JetBrainsMono Nerd Font 12";
+    terminal:               "kitty";
+
+    /* Ikon */
+    show-icons:             true;
+    icon-theme:             "Papirus-Dark";
+    drun-display-format:    "{name}";
+
+    /* Pencarian fuzzy, tidak peka huruf besar/kecil.
+     * Kolom kosong  -> urutan alfabet (history dimatikan).
+     * Sambil mengetik -> hasil paling cocok di atas.
+     * Mau alfabet murni juga saat mengetik: ubah sort menjadi false. */
+    matching:               "fuzzy";
+    case-sensitive:         false;
+    sort:                   true;
+    sorting-method:         "fzf";
+    disable-history:        true;
+
+    click-to-exit:          true;
+    hover-select:           false;
+
+    /* Navigasi gaya vim: Ctrl+j turun, Ctrl+k naik.
+     * Ctrl+j (biasanya "pilih") dan Ctrl+k (biasanya "hapus sampai
+     * akhir baris") dilepas dari fungsi aslinya. Pilih = Enter. */
+    kb-row-down:            "Down,Control+n,Control+j";
+    kb-row-up:              "Up,Control+p,Control+k";
+    kb-accept-entry:        "Control+m,Return,KP_Enter";
+    kb-remove-to-eol:       "";
+}
+
+@theme "~/.config/rofi/theme.rasi"
