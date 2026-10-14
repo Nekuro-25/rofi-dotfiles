@@ -2,6 +2,7 @@
 # =========================================================
 # POWER MENU
 # Konfirmasi Yes/No hanya untuk Shutdown dan Reboot.
+# Hibernate tidak ada: kernel belum punya resume= (lihat README).
 # Keybind: SUPER + X (hypr/keybinds/menus.lua)
 # =========================================================
 
@@ -10,7 +11,6 @@ source "$(dirname "$(readlink -f "$0")")/lib.sh"
 SHUTDOWN="  Shutdown"
 REBOOT="  Reboot"
 SUSPEND="  Suspend"
-HIBERNATE="  Hibernate"
 LOCK="  Lock"
 LOGOUT="  Logout"
 
@@ -22,14 +22,13 @@ confirm() {
     [[ "$answer" == "Yes" ]]
 }
 
-choice=$(printf '%s\n' "$SHUTDOWN" "$REBOOT" "$SUSPEND" "$HIBERNATE" "$LOCK" "$LOGOUT" \
-    | menu "Power" 6) || exit 0
+choice=$(printf '%s\n' "$SHUTDOWN" "$REBOOT" "$SUSPEND" "$LOCK" "$LOGOUT" \
+    | menu "Power" 5) || exit 0
 
 case "$choice" in
     "$SHUTDOWN")  confirm "Shutdown" && systemctl poweroff ;;
     "$REBOOT")    confirm "Reboot"   && systemctl reboot ;;
     "$SUSPEND")   systemctl suspend ;;
-    "$HIBERNATE") systemctl hibernate ;;
     "$LOCK")      loginctl lock-session ;;
     # Hyprland 0.55+ (config Lua): argumen dispatch adalah ekspresi Lua
     "$LOGOUT")    hyprctl dispatch 'hl.dsp.exit()' ;;

@@ -1,24 +1,23 @@
 /* =========================================================
- * ROFI — PALET (dragon: merah gelap + biru es)
- * Sama dengan Kitty, Hyprland (theme.lua), Waybar, Hyprlock.
+ * ROFI — PALET (ice blue night)
+ * Sama dengan Kitty, Hyprland (theme.lua), Waybar, Hyprlock, Neovim.
  * Format: #RRGGBBAA
  * ========================================================= */
 
 * {
-    backdrop:  #12060f59;   /* tint tipis di luar panel (35%). Harus > ignore_alpha
+    backdrop:  #0d143359;   /* tint tipis di luar panel (35%). Harus > ignore_alpha
                                di rules/layers.lua (0.2) agar tetap di-blur. */
-    bg:        #12060fd1;   /* panel kaca: 82% opak */
-    bg-solid:  #12060f;
-    bg-input:  #12060f99;
-    sel:       #e0122e2e;   /* latar item terpilih (merah 18%) */
+    bg:        #141d48d1;   /* panel kaca: 82% opak */
+    bg-solid:  #141d48;
+    bg-input:  #0d143399;
+    sel:       #5d80e42e;   /* latar item terpilih (azure 18%) */
 
-    fg:        #c9dbe6;
-    fg-muted:  #8f9eaa;
-    mauve:     #8a5566;
+    fg:        #dbe6ff;
+    fg-muted:  #9aabe0;
 
-    red:       #e0122e;
-    red-hi:    #ff3b55;
+    accent:    #5d80e4;
+    accent-hi: #8fa8f2;
 
-    ice:       #8fc4dc;
-    ice-hi:    #b3dcee;
+    sky:       #a8c4ff;
+    sky-hi:    #cfdeff;
 }

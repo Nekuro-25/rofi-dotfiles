@@ -19,7 +19,7 @@ window {
     children:         [ "frame" ];
 }
 
-/* Bingkai: gradien merah -> biru es, setebal padding (= border gradien).
+/* Bingkai: gradien azure -> biru es, setebal padding (= border gradien).
  * Rofi tidak mendukung border-color gradien, jadi gradiennya digambar
  * di bingkai dan panel diletakkan di dalamnya.
  * Warna harus literal (tidak bisa memakai @variabel di sini). */
@@ -27,7 +27,7 @@ frame {
     expand:           false;
     padding:          1px;
     border-radius:    2px;
-    background-image: linear-gradient(45, #e0122e, #8fc4dc);
+    background-image: linear-gradient(45, #5d80e4, #a8c4ff);
     children:         [ "mainbox" ];
 }
 
@@ -48,14 +48,14 @@ inputbar {
 }
 
 prompt {
-    text-color:       @ice;
+    text-color:       @sky;
     vertical-align:   0.5;
 }
 
 entry {
     placeholder:       "Filter...";
     placeholder-color: @fg-muted;
-    text-color:        @ice-hi;
+    text-color:        @sky-hi;
     vertical-align:    0.5;
 }
 
@@ -92,13 +92,13 @@ element alternate.normal {
 
 element selected.normal {
     background-color: @sel;
-    text-color:       @ice-hi;
+    text-color:       @sky-hi;
     border:           0px 0px 0px 2px;
-    border-color:     @ice;
+    border-color:     @sky;
 }
 
 element-text {
     text-color:       inherit;
     vertical-align:   0.5;
-    highlight:        bold #8fc4dc;   /* harus literal: @variabel tidak diterima di sini */
+    highlight:        bold #a8c4ff;   /* harus literal: @variabel tidak diterima di sini */
 }
