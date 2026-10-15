@@ -51,7 +51,7 @@ inputbar {
  * font, jadi tidak ikut terpotong atau berubah bentuk karena font. */
 icon-search {
     expand:           false;
-    filename:         "__HOME__/.config/rofi/search.svg";
+    filename:         "/home/bagus/.config/rofi/search.svg";
     size:             1.5em;
     vertical-align:   0.5;
 }
